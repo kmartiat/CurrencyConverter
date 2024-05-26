@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,7 +34,12 @@ public class Main {
 
         while (!exit) {
             System.out.println(menu);
-            int option = scanner.nextInt();
+            int option;
+            try {
+                option = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                option = 0;
+            }
             scanner.nextLine();
 
             switch (option) {

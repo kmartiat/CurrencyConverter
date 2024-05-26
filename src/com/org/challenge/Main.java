@@ -36,29 +36,24 @@ public class Main {
             int option = scanner.nextInt();
             scanner.nextLine();
 
-            String response = "";
-
             switch (option) {
                 case 1:
-                    new CurrencyConverter().converter("USD", "ARS", currencies);
-                    //response = new ApiConnect().search("USD", "ARS");
+                    new CurrencyConverter().converter("USD", "ARS", currencies, scanner);
                     break;
                 case 2:
-                    new CurrencyConverter().converter("ARS", "USD", currencies);
-                    //response = new ApiConnect().search("ARS", "USD");
+                    new CurrencyConverter().converter("ARS", "USD", currencies, scanner);
                     break;
                 case 3:
-                    new CurrencyConverter().converter("USD", "BRL", currencies);
-                    //response = new ApiConnect().search("USD", "BRL");
+                    new CurrencyConverter().converter("USD", "BRL", currencies, scanner);
                     break;
                 case 4:
-                    response = new ApiConnect().search("BRL", "USD");
+                    new CurrencyConverter().converter("BRL", "USD", currencies, scanner);
                     break;
                 case 5:
-                    response = new ApiConnect().search("USD", "COP");
+                    new CurrencyConverter().converter("USD", "COP", currencies, scanner);
                     break;
                 case 6:
-                    response = new ApiConnect().search("COP", "USD");
+                    new CurrencyConverter().converter("COP", "USD", currencies, scanner);
                     break;
                 case 7:
                     exit = true;
@@ -66,15 +61,11 @@ public class Main {
                 default:
                     System.out.println("Invalid option. Please choose a valid option.");
             }
-
-            /*Currency currency = new Gson().fromJson(response, Currency.class);
-            currencies.add(currency);
-            System.out.println(currency.conversion_result());*/
         }
         System.out.println("Thank you for using the currency converter.");
 
-        System.out.println(currencies);
-        System.out.println(gson.toJson(currencies));
+        /*System.out.println(currencies);
+        System.out.println(gson.toJson(currencies));*/
         scanner.close();
     }
 }

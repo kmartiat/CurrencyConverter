@@ -2,6 +2,8 @@ package com.org.challenge;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.org.challenge.models.Currency;
+import com.org.challenge.models.CurrencyConverter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -70,8 +72,7 @@ public class Main {
         }
         System.out.println("Thank you for using the currency converter.");
 
-        /*System.out.println(currencies);
-        System.out.println(gson.toJson(currencies));*/
+        System.out.println(gson.toJson(currencies));
         scanner.close();
     }
 }

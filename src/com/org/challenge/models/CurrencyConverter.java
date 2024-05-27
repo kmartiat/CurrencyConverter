@@ -1,6 +1,7 @@
-package com.org.challenge;
+package com.org.challenge.models;
 
 import com.google.gson.Gson;
+import com.org.challenge.ApiConnect;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,11 +12,13 @@ public class CurrencyConverter {
         System.out.println("Enter an amount: ");
         int amount = scanner.nextInt();
         scanner.nextLine();
+
         String response = new ApiConnect().search(from, to, amount);
-        Currency currency = new Gson().fromJson(response, Currency.class);
+        CurrencyDTO currencyDTO = new Gson().fromJson(response, CurrencyDTO.class);
+        Currency currency = new Currency(currencyDTO, amount);
 
         currencies.add(currency);
-        System.out.printf("The value %d [%s] corresponds to the final value %s [%s]", amount, from, currency.conversion_result(), to);
+        System.out.printf("The value %d [%s] corresponds to the final value %s [%s]", amount, from, currency.getConversionResult(), to);
         System.out.println("\n");
     }
 }

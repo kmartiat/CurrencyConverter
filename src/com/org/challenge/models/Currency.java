@@ -73,13 +73,9 @@ public class Currency {
 
     @Override
     public String toString() {
-        return "(" +
-                "baseCode='" + baseCode + '\'' +
-                ", targetCode='" + targetCode + '\'' +
-                ", conversionRate='" + conversionRate + '\'' +
-                ", amount=" + amount +
-                ", conversionResult=" + conversionResult +
-                ", createAt=" + this.getCreateAt() +
-                ")\n";
+        return this.getCreateAt() + " | " +
+                conversionRate + " | " +
+                amount + " " + baseCode + " | " +
+                conversionResult + " " + targetCode;
     }
 }

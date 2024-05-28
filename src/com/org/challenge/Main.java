@@ -9,30 +9,16 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import static com.org.challenge.utils.Literals.MENU;
+
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         boolean exit = false;
         List<Currency> currencies = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
-        String menu = """
-                *********************************************
-                Welcome to the Currency Converter =]
-                                
-                1) Dollar (USD) =>> Peso Argentino (ARS).
-                2) Peso Argentino (ARS) =>> Dollar (USD).
-                3) Dollar (USD) =>> Real Brasileño (BRL).
-                4) Real Brasileño (BRL) =>> Dollar (USD).
-                5) Dollar (USD) =>> Peso Colombiano (COP).
-                6) Peso Colombiano (COP) =>> Dollar (USD).
-                7) Exit.
-                                
-                Choose a valid option:
-                *********************************************
-                """;
-
         while (!exit) {
-            System.out.println(menu);
+            System.out.println(MENU);
             int option;
             try {
                 option = scanner.nextInt();
@@ -67,7 +53,12 @@ public class Main {
                     System.out.println("Invalid option. Please choose a valid option.");
             }
         }
-        System.out.println(currencies);
+
+        System.out.println("\033[0;1m" + "conversion date" + " | " +
+                "conversion rate" + " | " +
+                "amount" + " | " +
+                "conversion result" + "\033[0m");
+        currencies.forEach(System.out::println);
         System.out.println("Thank you for using the currency converter.");
         scanner.close();
     }

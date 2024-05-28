@@ -9,7 +9,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.org.challenge.utils.Literals.MENU;
+import static com.org.challenge.utils.Literals.*;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -17,8 +17,50 @@ public class Main {
         List<Currency> currencies = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("****************************************************************\n" +
+                "      *** Welcome to the Currency Converter ***      ");
+
         while (!exit) {
-            System.out.println(MENU);
+            System.out.println(PRINCIPAL_MENU);
+            int option;
+            try {
+                option = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                option = 4;
+            }
+            scanner.nextLine();
+
+            switch (option) {
+                case 1:
+                    conversionProcess(scanner, currencies);
+                    break;
+                case 2:
+                    System.out.println("\033[0;1m" + "conversion date" + "   " +
+                            "conversion rate" + " | " +
+                            "amount" + " | " +
+                            "conversion result" + "\033[0m");
+                    System.out.println("\033[0;1m" + "---------------" + "   " +
+                            "---------------" + "   " +
+                            "------" + "   " +
+                            "-----------------" + "\033[0m");
+                    currencies.forEach(System.out::println);
+                    System.out.println();
+                    break;
+                case 0:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid option. Please choose a valid option. \n");
+            }
+        }
+        System.out.println("Thank you for using the currency converter.");
+        scanner.close();
+    }
+
+    public static void conversionProcess(Scanner scanner, List<Currency> currencies) throws IOException, InterruptedException {
+        boolean exit = false;
+        while (!exit) {
+            System.out.println(CONVERSION_MENU);
             int option;
             try {
                 option = scanner.nextInt();
@@ -53,13 +95,5 @@ public class Main {
                     System.out.println("Invalid option. Please choose a valid option.");
             }
         }
-
-        System.out.println("\033[0;1m" + "conversion date" + " | " +
-                "conversion rate" + " | " +
-                "amount" + " | " +
-                "conversion result" + "\033[0m");
-        currencies.forEach(System.out::println);
-        System.out.println("Thank you for using the currency converter.");
-        scanner.close();
     }
 }

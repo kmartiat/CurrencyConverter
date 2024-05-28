@@ -1,7 +1,5 @@
 package com.org.challenge;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.org.challenge.models.Currency;
 import com.org.challenge.models.CurrencyConverter;
 
@@ -14,7 +12,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         boolean exit = false;
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Currency> currencies = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
@@ -70,9 +67,8 @@ public class Main {
                     System.out.println("Invalid option. Please choose a valid option.");
             }
         }
+        System.out.println(currencies);
         System.out.println("Thank you for using the currency converter.");
-
-        System.out.println(gson.toJson(currencies));
         scanner.close();
     }
 }

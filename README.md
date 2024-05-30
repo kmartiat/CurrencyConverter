@@ -35,7 +35,9 @@ conversion history, or exiting the execution.
    currency, exchange rate, converted amount, and timestamp.
 4. `CurrencyDTO`: This class allows to transfer the data from the API response to the Currency class.
 5. `CurrencyConverter`: This class contains the logic to perform currency conversions.
-6. `Literals`: This class is a utility class that contains the menu and textual interface options.
+6. `Processor`: This class is responsible for coordinating user interaction with the logic defined in other classes, in
+   addition to handling errors that may occur during the process.
+7. `Literals`: This class is a utility class that contains the menu and textual interface options.
 
 ## 🔧 Installation
 

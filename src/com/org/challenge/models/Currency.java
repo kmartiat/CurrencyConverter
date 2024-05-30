@@ -1,14 +1,12 @@
 package com.org.challenge.models;
 
-//TODO: agrega función para calcular la conversión?
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Currency {
     private String baseCode;
     private String targetCode;
-    private String conversionRate;
+    private Double conversionRate;
     private int amount;
     private Double conversionResult;
     private LocalDateTime createAt;
@@ -16,9 +14,9 @@ public class Currency {
     public Currency(CurrencyDTO currencyDTO, int amount) {
         this.baseCode = currencyDTO.base_code();
         this.targetCode = currencyDTO.target_code();
-        this.conversionRate = currencyDTO.conversion_rate();
+        this.conversionRate = Double.parseDouble(currencyDTO.conversion_rate());
         this.amount = amount;
-        this.conversionResult = Double.parseDouble(currencyDTO.conversion_result());
+        this.setConversionResult();
         this.createAt = LocalDateTime.now();
     }
 
@@ -38,11 +36,11 @@ public class Currency {
         this.targetCode = targetCode;
     }
 
-    public String getConversionRate() {
+    public Double getConversionRate() {
         return conversionRate;
     }
 
-    public void setConversionRate(String conversionRate) {
+    public void setConversionRate(Double conversionRate) {
         this.conversionRate = conversionRate;
     }
 
@@ -58,8 +56,8 @@ public class Currency {
         return conversionResult;
     }
 
-    public void setConversionResult(Double conversionResult) {
-        this.conversionResult = conversionResult;
+    public void setConversionResult() {
+        this.conversionResult = this.amount * this.conversionRate;
     }
 
     public String getCreateAt() {

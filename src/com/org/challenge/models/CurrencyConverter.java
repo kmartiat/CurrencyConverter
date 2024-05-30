@@ -13,7 +13,7 @@ public class CurrencyConverter {
         int amount = scanner.nextInt();
         scanner.nextLine();
 
-        String response = new ApiConnect().search(from, to, amount);
+        String response = new ApiConnect().search(from, to);
         CurrencyDTO currencyDTO = new Gson().fromJson(response, CurrencyDTO.class);
         Currency currency = new Currency(currencyDTO, amount);
 

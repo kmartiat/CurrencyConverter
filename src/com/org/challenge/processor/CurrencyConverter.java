@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class CurrencyConverter {
     public void converter(String from, String to, List<Currency> currencies, Scanner scanner) throws IOException, InterruptedException {
         System.out.println("Enter an amount: ");
-        int amount = scanner.nextInt();
+        Float amount = scanner.nextFloat();
         scanner.nextLine();
 
         String response = new ApiConnect().search(from, to);
@@ -20,7 +20,7 @@ public class CurrencyConverter {
         Currency currency = new Currency(currencyDTO, amount);
 
         currencies.add(currency);
-        System.out.printf("The value %d [%s] corresponds to the final value %s [%s]", amount, from, currency.getConversionResult(), to);
+        System.out.printf("The value %s [%s] corresponds to the final value %s [%s]", amount, from, currency.getConversionResult(), to);
         System.out.println("\n");
     }
 }

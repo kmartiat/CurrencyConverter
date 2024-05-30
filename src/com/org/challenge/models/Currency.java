@@ -7,11 +7,11 @@ public class Currency {
     private String baseCode;
     private String targetCode;
     private Double conversionRate;
-    private int amount;
+    private Float amount;
     private Double conversionResult;
     private LocalDateTime createAt;
 
-    public Currency(CurrencyDTO currencyDTO, int amount) {
+    public Currency(CurrencyDTO currencyDTO, Float amount) {
         this.baseCode = currencyDTO.base_code();
         this.targetCode = currencyDTO.target_code();
         this.conversionRate = Double.parseDouble(currencyDTO.conversion_rate());
@@ -44,11 +44,11 @@ public class Currency {
         this.conversionRate = conversionRate;
     }
 
-    public int getAmount() {
+    public Float getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(Float amount) {
         this.amount = amount;
     }
 

@@ -1,4 +1,4 @@
-package com.org.challenge;
+package com.org.challenge.api;
 
 import java.io.IOException;
 import java.net.URI;

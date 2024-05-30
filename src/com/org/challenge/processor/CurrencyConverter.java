@@ -1,7 +1,9 @@
-package com.org.challenge.models;
+package com.org.challenge.processor;
 
 import com.google.gson.Gson;
-import com.org.challenge.ApiConnect;
+import com.org.challenge.api.ApiConnect;
+import com.org.challenge.models.Currency;
+import com.org.challenge.models.CurrencyDTO;
 
 import java.io.IOException;
 import java.util.List;

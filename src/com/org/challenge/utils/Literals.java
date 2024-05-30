@@ -30,4 +30,12 @@ public class Literals {
                         
             Choose a valid option:         \s
             """;
+
+    public static final String WELCOME = """
+            ****************************************************************
+                      *** Welcome to the Currency Converter ***""";
+
+    public static final String INVALID_MESSAGE = "Invalid option. Please choose a valid option. \n";
+
+    public static final String FINAL_MESSAGE = "Thank you for using the currency converter.";
 }
